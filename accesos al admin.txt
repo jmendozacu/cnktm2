@@ -1,0 +1,14 @@
+
+
+magen4me Magento admin  ................  http://magen4me.xyz/admin_11qmr3/
+magen4me Magento admin user  ...........  emendoza
+magen4me Magento admin password  .......  S0lbwPwSg8J7sT5DIXSbl06LfIly2bY
+
+
+Conekta URL  ...........................  https://admin.conekta.io/
+Conekta login  .........................  emendoza@magen4me.com
+Conekta password  ......................  S0lbwPwSg8J7sT5DIXSbl06LfIly2bY
+Conekta Sandbox Private key  ...........  key_ecg3u8jcsE8N2xxqrMU9cQ
+Conekta Sandbox Public key  ............  key_GquqVApzM7ZGr686qBHnWgA
+
+
