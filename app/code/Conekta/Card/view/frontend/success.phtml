@@ -1,0 +1,52 @@
+<?php
+
+$object_manager = \Magento\Framework\App\ObjectManager::getInstance();
+$data = $object_manager->create('Magento\Sales\Model\Order\Payment')->getCollection()->getLastItem();
+$order = $object_manager->create('Magento\Sales\Model\Order')->getCollection()->getLastItem();
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+<div class="checkout-success">
+    <?php if ($block->getOrderId()):?>
+        <?php if ($block->getCanViewOrder()) :?>
+            <p><?php echo __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?>
+            </p>
+                <p><?php 
+                    if($data->getMethod()=='conekta_oxxo'):
+                    echo __('Your Oxxo Barcode id is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($data->getAdditionalData()), $block->escapeHtml($data->getCcNumberEnc()))) ?>
+               </p>
+                    
+            <p><?php 
+            echo '<a href='.$data->getAdditionalData().'>Your Barcode:<br><img src='.$data->getAdditionalData().' /></a>.<br>';
+            endif;
+            ?>
+            </p>
+            <p><?php 
+                    if($data->getMethod()=='conekta_spei'):
+                echo __('Your Spei Clabe id is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($data->getAdditionalData()), $block->escapeHtml($data->getCcNumberEnc()))) 
+                    
+                    ?>
+                    <?php endif;?>
+                </p>
+            
+        <?php  else :?>
+            <p><?php 
+            
+            echo __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+        <?php endif;?>
+            <p><?php 
+             if($data->getMethod()=='conekta_card'):
+                echo __('Your Conekta charge id is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($data->getAdditionalData()), $block->escapeHtml($data->getCcTransId()))); 
+             echo "</br></br>";
+             endif;
+            /* @escapeNotVerified */ echo __('We\'ll email you an order confirmation with details and tracking info.');  ?></p>
+    <?php endif;?>
+    <?php echo $block->getAdditionalInfoHtml() ?>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <a class="action primary continue" href="<?php /* @escapeNotVerified */ echo $block->getUrl() ?>"><span><?php /* @escapeNotVerified */ echo __('Continue Shopping') ?></span></a>
+        </div>
+    </div>
+</div>

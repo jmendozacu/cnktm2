@@ -1,0 +1,25 @@
+ 
+
+<script type="text/javascript">
+ 
+ // Conekta Public Key
+  Conekta.setPublishableKey('key_KJysdbf6PotS2ut2');
+ 
+ // ...
+
+
+
+ $(function () {
+      $("#co-payment-form").submit(function(event) {
+        var $form = $(this);
+
+        // Previene hacer submit más de una vez
+        $form.find("button").prop("disabled", true);
+        Conekta.token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+       
+        // Previene que la información de la forma sea enviada al servidor
+        return false;
+      });
+    });
+ </script>
+ <div id="raj"></div>

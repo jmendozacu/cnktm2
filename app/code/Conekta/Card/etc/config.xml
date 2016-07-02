@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <payment>
+            <conekta_card>
+                <active>1</active>
+                <title>Credit/debit card payments</title>
+                <order_status>pending_payment</order_status>
+                <test_mode>0</test_mode>
+                <debug_mode>1</debug_mode>
+                <instructions>Please, provide your card info in order that Conekta to process it in your purchases</instructions>
+                <model>Conekta\Card\Model\ConektaCard</model>
+                <group>offline</group>
+
+                <sandboxprivatekey>key_ecg3u8jcsE8N2xxqrMU9cQ</sandboxprivatekey>
+                <sandboxpublickey>key_GquqVApzM7ZGr686qBHnWgA</sandboxpublickey>
+                    
+
+                <currency>MXN</currency>
+            </conekta_card>
+        </payment>
+    </default>
+</config>

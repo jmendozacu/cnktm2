@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Conekta\Card\Model\ConektaCard">
+        <arguments>
+            <argument name="session" xsi:type="object">Magento\Checkout\Model\Session</argument>
+        </arguments>
+    </type>
+   
+  
+    <type name="Magento\Payment\Model\CcGenericConfigProvider">
+        <arguments>
+            <argument name="methodCodes" xsi:type="array">
+                <item name="conekta_card" xsi:type="const">Conekta\Card\Model\ConektaCard::METHOD_CODE</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="DirectpostIframeCcConfigProvider" type="Magento\Payment\Model\IframeConfigProvider">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Conekta\Card\Model\ConektaCard::METHOD_CODE</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="networkmerchant_iframe_cc_config_provider" xsi:type="object">DirectpostIframeCcConfigProvider</item>
+                <item name="conekta_payment_config_provider" xsi:type="object">Conekta\Card\Model\ConektaConfigProvider</item> 
+            </argument>
+        </arguments>
+    </type>
+</config>

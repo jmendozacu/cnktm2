@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="conekta_card" translate="label" type="text" sortOrder="0.1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Conekta Debit/Credit card payments</label>
+
+                <comment><![CDATA[Conekta is a robust ecommerce payment solution that lets you act as the gateway to your customers]]></comment>
+
+                <attribute type="activity_path">payment/conekta_card/active</attribute>
+
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                
+                <field id="order_status" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Order Status</label>
+                    <source_model>Conekta\Card\Model\Config\Source\Order\Status\Pendingpayment</source_model>
+                </field>
+
+                <field id="test_mode" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Test Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="debug_mode" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Debug Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <!-- <field id="payment_action" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Action</label>
+                    <source_model>Magento\Braintree\Model\Source\PaymentAction</source_model>
+                </field> -->
+
+                <field id="credit_card_type" translate="label" type="multiselect" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Credit Card Types</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Cctype</source_model>
+                </field>
+                
+                <field id="active3" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activate 3 Monthly Installments</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="active6" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activate 6 Monthly Installments</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="active9" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activate 9 Monthly Installments</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="active12" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activate 12 Monthly Installments</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="minimum_amount" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum Amount for Monthly Installments</label>
+                </field>
+                
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+
+                <field id="productionprivatekey" translate="label" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Production Private Key</label>
+                </field>
+
+                <field id="productionpublickey" translate="label" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Production Public Key</label>
+                </field>
+
+                <field id="sandboxprivatekey" translate="label" sortOrder="19" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sandbox Private Key</label>
+                    <comment><![CDATA[Only for test mode]]></comment>
+                </field>
+
+                <field id="sandboxpublickey" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sandbox Public Key</label>
+                    <comment><![CDATA[Only for test mode]]></comment>
+                </field>
+
+                <field id="sort_order" translate="label" type="text" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+
+                <field id="currency" translate="label" type="select" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Currency</label>
+                    <source_model>Magento\Config\Model\Config\Source\Locale\Currency</source_model>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

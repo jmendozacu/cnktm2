@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <!-- -->
+    <default>
+        <webhook>
+            <module>
+                <is_enabled>1</is_enabled>
+            </module>
+        </webhook>
+    </default>
+    <!-- -->
+</config>
